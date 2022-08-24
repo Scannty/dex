@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\Pool.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Pool.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>53/53</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>21/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>17/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>58/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/math/Math.sol";
+import "@openzeppelin/contracts/interfaces/IERC20.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "./LiquidityToken.sol";
+&nbsp;
+// 1) Initialize the pool :)
+// 2) Add liquidity :)
+// 3) Remove liquidity :)
+// 4) Get prices :)
+// 5) Swap tokens :)
+&nbsp;
+error Pool__MustSendSomeTokens();
+error Pool__NoLiquidityAvailable();
+error Pool__NotEnoughTokensInPool(uint256 tokenBalance);
+&nbsp;
+contract Pool is ReentrancyGuard {
+    using SafeMath for uint256;
+&nbsp;
+    IERC20 private immutable tokenOne;
+    IERC20 private immutable tokenTwo;
+    LiquidityToken private immutable liqToken;
+&nbsp;
+    address private immutable poolCreator;
+&nbsp;
+    event LiquidityAdded(
+        address indexed liqProvider,
+        uint256 indexed amountOne,
+        uint256 indexed amountTwo,
+        uint256 liqTokenAmount
+    );
+    event LiquidityRemoved(
+        address indexed liqProvider,
+        uint256 indexed amountOne,
+        uint256 indexed amountTwo
+    );
+    event Swap(
+        address indexed buyer,
+        address indexed tokenIn,
+        address indexed tokenOut,
+        uint256 amountIn,
+        uint256 amountOut
+    );
+&nbsp;
+    constructor(
+        address poolCreatorAddress,
+        address tokenOneAddress,
+        address tokenTwoAddress,
+        uint256 initAmountOne,
+        uint256 initAmountTwo
+    ) {
+        poolCreator = poolCreatorAddress;
+        tokenOne = IERC20(tokenOneAddress);
+        tokenTwo = IERC20(tokenTwoAddress);
+        liqToken = new LiquidityToken();
+&nbsp;
+        _initializePool(initAmountOne, initAmountTwo);
+    }
+&nbsp;
+    modifier onlyLps() {
+        if (liqToken.balanceOf(msg.sender) &lt;= 0) {
+            revert Pool__NoLiquidityAvailable();
+        }
+        _;
+    }
+&nbsp;
+    function addLiquidity(uint256 amountOne, uint256 amountTwo)
+        public
+        nonReentrant
+    {
+        if (amountOne &lt;= 0 || amountTwo &lt;= 0) {
+            revert Pool__MustSendSomeTokens();
+        }
+&nbsp;
+        (uint256 adjAmountOne, uint256 adjAmountTwo) = checkLiquidityProportion(
+            amountOne,
+            amountTwo
+        );
+        uint256 liqTokenAmount = _calcLiquidityTokenAmount(
+            adjAmountOne,
+            adjAmountTwo
+        );
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenOne.transferFrom(msg.sender, address(this), adjAmountOne));
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenTwo.transferFrom(msg.sender, address(this), adjAmountTwo));
+        liqToken.mint(msg.sender, liqTokenAmount);
+&nbsp;
+        emit LiquidityAdded(
+            msg.sender,
+            adjAmountOne,
+            adjAmountTwo,
+            liqTokenAmount
+        );
+    }
+&nbsp;
+    function removeLiquidity() public onlyLps nonReentrant {
+        (uint256 amountOne, uint256 amountTwo) = _removeLiquidity();
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenOne.transfer(msg.sender, amountOne));
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenTwo.transfer(msg.sender, amountTwo));
+        liqToken.burn(msg.sender, liqToken.balanceOf(msg.sender));
+&nbsp;
+        emit LiquidityRemoved(msg.sender, amountOne, amountTwo);
+    }
+&nbsp;
+    function swapTokenOneForTwo(uint256 amountOne) public nonReentrant {
+        if (amountOne &lt;= 0) {
+            revert Pool__MustSendSomeTokens();
+        }
+&nbsp;
+        uint256 amountTwo = getTokenTwoQuantity(amountOne);
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenOne.transferFrom(msg.sender, address(this), amountOne));
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenTwo.transfer(msg.sender, amountTwo));
+&nbsp;
+        emit Swap(
+            msg.sender,
+            address(tokenOne),
+            address(tokenTwo),
+            amountOne,
+            amountTwo
+        );
+    }
+&nbsp;
+    function swapTokenTwoForOne(uint256 amountTwo) public nonReentrant {
+        if (amountTwo &lt;= 0) {
+            revert Pool__MustSendSomeTokens();
+        }
+&nbsp;
+        uint256 amountOne = getTokenOneQuantity(amountTwo);
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenTwo.transferFrom(msg.sender, address(this), amountTwo));
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenOne.transfer(msg.sender, amountOne));
+&nbsp;
+        emit Swap(
+            msg.sender,
+            address(tokenTwo),
+            address(tokenOne),
+            amountTwo,
+            amountOne
+        );
+    }
+&nbsp;
+    function checkLiquidityProportion(uint256 amountOne, uint256 amountTwo)
+        public
+        view
+        returns (uint256, uint256)
+    {
+        uint256 correctProportion = (tokenOne.balanceOf(address(this))).div(
+            tokenTwo.balanceOf(address(this))
+        );
+        uint256 inputProportion = amountOne.div(amountTwo);
+&nbsp;
+        if (inputProportion == correctProportion) {
+            return (amountOne, amountTwo);
+        }
+        if (inputProportion &gt; correctProportion) {
+            return (amountTwo.mul(correctProportion), amountTwo);
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (inputProportion &lt; correctProportion) {
+            return (amountOne, amountOne.div(correctProportion));
+        }
+    }
+&nbsp;
+    function getTokenTwoQuantity(uint256 amount) public view returns (uint256) {
+        uint256 product = _getCurrentProduct();
+        return
+            tokenTwo.balanceOf(address(this)).sub(
+                product.div((tokenOne.balanceOf(address(this))).add(amount))
+            );
+    }
+&nbsp;
+    function getTokenOneQuantity(uint256 amount) public view returns (uint256) {
+        uint256 product = _getCurrentProduct();
+        return
+            tokenOne.balanceOf(address(this)).sub(
+                product.div((tokenTwo.balanceOf(address(this))).add(amount))
+            );
+    }
+&nbsp;
+    function getTokenOneAddress() public view returns (address) {
+        return address(tokenOne);
+    }
+&nbsp;
+    function getTokenTwoAddress() public view returns (address) {
+        return address(tokenTwo);
+    }
+&nbsp;
+    function getLiquidityTokenAddress() public view returns (address) {
+        return address(liqToken);
+    }
+&nbsp;
+    function getPoolCreator() public view returns (address) {
+        return poolCreator;
+    }
+&nbsp;
+    function _initializePool(uint256 initAmountOne, uint256 initAmountTwo)
+        private
+    {
+        uint256 initialLiquidity = Math.sqrt(initAmountOne.mul(initAmountTwo));
+        liqToken.mint(poolCreator, initialLiquidity);
+    }
+&nbsp;
+    function _getCurrentProduct() private view returns (uint256) {
+        uint256 tokenOneBalance = tokenOne.balanceOf(address(this));
+        uint256 tokenTwoBalance = tokenTwo.balanceOf(address(this));
+        return tokenOneBalance.mul(tokenTwoBalance);
+    }
+&nbsp;
+    function _calcLiquidityTokenAmount(uint256 amountOne, uint256 amountTwo)
+        private
+        view
+        returns (uint256)
+    {
+        return
+            (amountOne.mul(liqToken.totalSupply())).div(
+                amountOne.add(tokenOne.balanceOf(address(this)))
+            );
+    }
+&nbsp;
+    function _removeLiquidity() private view returns (uint256, uint256) {
+        uint256 amountOne = (
+            liqToken.balanceOf(msg.sender).mul(
+                tokenOne.balanceOf(address(this))
+            )
+        ).div(liqToken.totalSupply());
+&nbsp;
+        uint256 amountTwo = (
+            liqToken.balanceOf(msg.sender).mul(
+                tokenTwo.balanceOf(address(this))
+            )
+        ).div(liqToken.totalSupply());
+&nbsp;
+        return (amountOne, amountTwo);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Aug 24 2022 18:46:41 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
