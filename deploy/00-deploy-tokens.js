@@ -7,13 +7,13 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     if (network.config.chainId != 31337) return
 
     log('Local network detected deploying token mocks...')
-    await deploy('ThunderToken', {
+    const thunderToken = await deploy('ThunderToken', {
         from: deployer,
         args: [],
         log: true,
         waitConfirmations: 1
     })
-    await deploy('CloudToken', {
+    const cloudToken = await deploy('CloudToken', {
         from: deployer,
         args: [],
         log: true,

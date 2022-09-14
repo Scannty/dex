@@ -181,10 +181,6 @@ contract Pool is ReentrancyGuard {
         return amountBeforeFee.sub(fee);
     }
 
-    function getFeeAmount(uint256 amount) public view returns (uint256) {
-        return (amount.mul(FEE_PERCENTAGE)).div(100);
-    }
-
     function getTokenOneAddress() public view returns (address) {
         return address(tokenOne);
     }
@@ -199,6 +195,10 @@ contract Pool is ReentrancyGuard {
 
     function getPoolCreator() public view returns (address) {
         return poolCreator;
+    }
+
+    function getFeeAmount(uint256 amount) public pure returns (uint256) {
+        return (amount.mul(FEE_PERCENTAGE)).div(100);
     }
 
     function getFeePercentage() public pure returns (uint256) {

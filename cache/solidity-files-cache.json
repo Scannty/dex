@@ -47,8 +47,8 @@
       ]
     },
     "C:\\Users\\aleks\\Documents\\Coding\\Blockchain\\dex\\contracts\\Pool.sol": {
-      "lastModificationDate": 1661361434908,
-      "contentHash": "504955724d4aae3d4329f1b8e52c6af2",
+      "lastModificationDate": 1662065714091,
+      "contentHash": "35a5e457f145e1793ce18a6861d06ad1",
       "sourceName": "contracts/Pool.sol",
       "solcConfig": {
         "version": "0.8.9",
